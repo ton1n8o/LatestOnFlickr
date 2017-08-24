@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Photo {
+struct Photo : Equatable {
     
     let urlMedium: String
     let ownerName: String
@@ -23,4 +23,16 @@ struct Photo {
         self.ownerName = dict["ownername"] as! String
     }
     
+}
+
+extension Photo {
+    static func ==(lhs: Photo, rhs: Photo) -> Bool {
+        if lhs.urlMedium != rhs.urlMedium {
+            return false
+        }
+        if lhs.ownerName != rhs.ownerName {
+            return false
+        }
+        return true
+    }
 }

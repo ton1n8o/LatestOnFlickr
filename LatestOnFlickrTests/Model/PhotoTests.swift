@@ -41,4 +41,18 @@ class PhotoTests: XCTestCase {
         XCTAssertEqual(photo.ownerName, "Foo")
     }
     
+    //10
+    func test_When_URLMedium_Different_AreNotEqual() {
+        let photoA = Photo(urlMedium: "URL", ownerName: "")
+        let photoB = Photo(urlMedium: "", ownerName: "")
+        
+        XCTAssertNotEqual(photoA, photoB)
+    }
+    
+    func test_When_OwnerName_Different_AreNotEqual() {
+        let photoA = Photo(urlMedium: "", ownerName: "Foo")
+        let photoB = Photo(urlMedium: "", ownerName: "Bar")
+        
+        XCTAssertNotEqual(photoA, photoB)
+    }
 }

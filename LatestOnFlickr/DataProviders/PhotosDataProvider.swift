@@ -11,12 +11,18 @@ import UIKit
 
 class PhotosDataProvider: NSObject, UITableViewDataSource {
     
+    var photos: [Photo] = []
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return photos.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "PhotoCell", for: indexPath) as? PhotoCell else {
+            return UITableViewCell()
+        }
+        cell.configCell(with: photos[indexPath.row])
+        return cell
     }
     
 }

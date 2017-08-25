@@ -1,0 +1,6 @@
+framework module Pods_LatestOnFlickr {
+  umbrella header "Pods-LatestOnFlickr-umbrella.h"
+
+  export *
+  module * { export * }
+}

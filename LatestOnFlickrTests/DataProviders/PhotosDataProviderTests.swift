@@ -60,7 +60,7 @@ class PhotosDataProviderTests: XCTestCase {
     
     // 4
     func test_CellForRow_Returns_PhotoCell() {
-        tableView.register(PhotoCell.self, forCellReuseIdentifier: "PhotoCell")
+        tableView.register(MockPhotoCell.self, forCellReuseIdentifier: "PhotoCell")
         sut.photos.append(Photo(urlMedium: "", ownerName: "Boo"))
         tableView.reloadData()
         let cell = tableView.cellForRow(at: IndexPath(row: 0, section: 0))
@@ -71,7 +71,7 @@ class PhotosDataProviderTests: XCTestCase {
     func test_CellForRow_DequeuesCellFromTableView() {
         let mockTableView = MockTableView()
         mockTableView.dataSource = sut
-        mockTableView.register(PhotoCell.self, forCellReuseIdentifier: "PhotoCell")
+        mockTableView.register(MockPhotoCell.self, forCellReuseIdentifier: "PhotoCell")
         
         sut.photos.append(Photo(urlMedium: "my url", ownerName: "Boo"))
         mockTableView.reloadData()

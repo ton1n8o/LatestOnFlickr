@@ -7,15 +7,21 @@
 //
 
 import UIKit
+import Kingfisher
 
 class PhotoCell: UITableViewCell {
+    
+    @IBOutlet var userNameLabel: UILabel!
+    @IBOutlet var photoImageView: UIImageView!
 
     override func awakeFromNib() {
         super.awakeFromNib()
     }
     
     func configCell(with photo: Photo) {
-        
+        userNameLabel.text = photo.ownerName
+        let url = URL(string: photo.urlMedium)
+        photoImageView.kf.setImage(with: url)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

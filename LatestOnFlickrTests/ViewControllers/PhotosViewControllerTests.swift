@@ -38,4 +38,38 @@ class PhotosViewControllerTests: XCTestCase {
         XCTAssertTrue(sut.tableView.delegate is PhotosDataProvider)
     }
     
+    // 1
+    func test_ViewWillAppear_GotCalled() {
+        let api = MockAPI()
+        sut.api = api
+        sut.beginAppearanceTransition(true, animated: true)
+        sut.endAppearanceTransition()
+        
+        XCTAssertTrue(api.apiGotCalled)
+    }
+    
+//    // 2
+//    func test_ViewWillAppear_FillsDataProvider() {
+//        let api = MockAPI()
+//        sut.api = api
+//        sut.beginAppearanceTransition(true, animated: true)
+//        sut.endAppearanceTransition()
+//        
+//        XCTAssertTrue(api.apiGotCalled)
+//    }
+    
+}
+
+
+// 2
+extension PhotosViewControllerTests {
+    
+    class MockAPI: APIClient {
+        
+        var apiGotCalled = false
+        
+        override func loadPage(_ pageNum: Int, completion: @escaping (Photos?, Error?) -> Void) {
+            apiGotCalled = true
+        }
+    }
 }

@@ -26,4 +26,11 @@ struct JSONParserHelper {
         
         return photos
     }
+    
+    static func parseString(_ str: AnyObject?) -> String {
+        guard let str = str as? String else {
+            return ""
+        }
+        return str
+    }
 }

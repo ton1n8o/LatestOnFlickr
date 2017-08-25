@@ -6,7 +6,7 @@
 //  Copyright © 2017 TNTStudios. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 enum WebServiceError: Error {
     case dataEmptyError
@@ -31,7 +31,12 @@ class APIClient {
             fatalError()
         }
         
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
         session.dataTask(with: url) { (data, urlResponse, error) in
+            
+            DispatchQueue.main.async {
+                UIApplication.shared.isNetworkActivityIndicatorVisible = false
+            }
             
             guard error == nil else {
                 completion(nil, error)

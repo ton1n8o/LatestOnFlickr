@@ -26,7 +26,9 @@ class PhotosViewController: UIViewController {
         api.loadPage(1) { (photo, error) in
             if let photosDataProvider = self.dataProvider as? PhotosDataProvider {
                 photosDataProvider.photos = photo?.photo ?? [Photo]()
-                self.tableView.reloadData()
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
             }
         }
     }

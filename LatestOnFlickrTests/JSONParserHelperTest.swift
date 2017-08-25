@@ -31,6 +31,16 @@ class JSONParserHelperTest: XCTestCase {
         XCTAssertFalse(photos.isEmpty)
     }
     
+    func test_ParseString_Returns_StringValue() {
+        let str = "Hello" as AnyObject
+        XCTAssertEqual(JSONParserHelper.parseString(str), "Hello")
+    }
+    
+    func test_ParseInt_Returns_EmptyString() {
+        let str = 2 as AnyObject
+        XCTAssertEqual(JSONParserHelper.parseString(str), "")
+    }
+    
     
     
 }

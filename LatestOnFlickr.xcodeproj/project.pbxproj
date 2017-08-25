@@ -30,6 +30,7 @@
 		74F81A511F4BD4F1009196B6 /* JSONParserHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F81A501F4BD4F1009196B6 /* JSONParserHelper.swift */; };
 		74F81A531F4BDA12009196B6 /* photo_array.json in Resources */ = {isa = PBXBuildFile; fileRef = 74F81A521F4BDA12009196B6 /* photo_array.json */; };
 		7764EA85797B87E478FEC26A /* Pods_LatestOnFlickrTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 159322716617B5DD57CE4C04 /* Pods_LatestOnFlickrTests.framework */; };
+		A7662C671F500AD2002EB330 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A7662C661F500AD2002EB330 /* LaunchScreen.storyboard */; };
 		A79D6A9F1F4FFF57000B476C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A79D6A9E1F4FFF57000B476C /* Main.storyboard */; };
 		BA606741BB16205132B0EF14 /* Pods_LatestOnFlickr.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1201F34CBB00E2BC40A61A47 /* Pods_LatestOnFlickr.framework */; };
 /* End PBXBuildFile section */
@@ -76,6 +77,7 @@
 		74F81A501F4BD4F1009196B6 /* JSONParserHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONParserHelper.swift; sourceTree = "<group>"; };
 		74F81A521F4BDA12009196B6 /* photo_array.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = photo_array.json; sourceTree = "<group>"; };
 		788491A6DE6BD690D713846F /* Pods-LatestOnFlickr.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LatestOnFlickr.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LatestOnFlickr/Pods-LatestOnFlickr.debug.xcconfig"; sourceTree = "<group>"; };
+		A7662C661F500AD2002EB330 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = ../LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A79D6A9E1F4FFF57000B476C /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = ../Main.storyboard; sourceTree = "<group>"; };
 		A80F6A9FE3907CCBC08289DF /* Pods-LatestOnFlickrTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LatestOnFlickrTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LatestOnFlickrTests/Pods-LatestOnFlickrTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -226,6 +228,7 @@
 				74A2F6421F429AC300F2DB0D /* Assets.xcassets */,
 				74A2F6471F429AC300F2DB0D /* Info.plist */,
 				A79D6A9E1F4FFF57000B476C /* Main.storyboard */,
+				A7662C661F500AD2002EB330 /* LaunchScreen.storyboard */,
 			);
 			path = LatestOnFlickr;
 			sourceTree = "<group>";
@@ -362,6 +365,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A7662C671F500AD2002EB330 /* LaunchScreen.storyboard in Resources */,
 				A79D6A9F1F4FFF57000B476C /* Main.storyboard in Resources */,
 				74A2F6431F429AC300F2DB0D /* Assets.xcassets in Resources */,
 			);

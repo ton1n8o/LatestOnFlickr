@@ -13,11 +13,22 @@ class PhotosViewController: UIViewController {
     @IBOutlet var tableView: UITableView!
     @IBOutlet var dataProvider: (UITableViewDelegate & UITableViewDataSource)!
     
+    lazy var api = APIClient()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = dataProvider
         tableView.delegate = dataProvider
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        api.loadPage(1) { (photo, error) in
+            if let photosDataProvider = self.dataProvider as? PhotosDataProvider {
+                photosDataProvider.photos = photo?.photo ?? [Photo]()
+                self.tableView.reloadData()
+            }
+        }
     }
 
     override func didReceiveMemoryWarning() {

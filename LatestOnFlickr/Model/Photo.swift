@@ -19,8 +19,8 @@ struct Photo : Equatable {
     }
     
     init (dict: [String: AnyObject]) {
-        self.urlMedium = dict["url_m"] as! String
-        self.ownerName = dict["ownername"] as! String
+        self.urlMedium = JSONParserHelper.parseString(dict["url_m"])
+        self.ownerName = JSONParserHelper.parseString(dict["ownername"])
     }
     
 }

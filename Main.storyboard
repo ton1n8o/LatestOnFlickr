@@ -12,7 +12,7 @@
         <!--Photos View Controller-->
         <scene sceneID="fgi-zm-RIj">
             <objects>
-                <viewController storyboardIdentifier="PhotosViewController" id="Zib-hf-Bfj" customClass="PhotosViewController" customModule="LatestOnFlickr" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PhotosViewController" automaticallyAdjustsScrollViewInsets="NO" id="Zib-hf-Bfj" customClass="PhotosViewController" customModule="LatestOnFlickr" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="hXQ-ho-HzQ"/>
                         <viewControllerLayoutGuide type="bottom" id="yYC-fh-fx9"/>

@@ -14,6 +14,12 @@ struct Photos {
     let perpage: Int
     let photo: [Photo]
     
+    init(page: Int, perpage: Int, photo: [Photo]) {
+        self.page = page
+        self.perpage = perpage
+        self.photo = photo
+    }
+    
     init(usingDict dict: [String: AnyObject]) {
         self.page = dict["page"] as! Int
         self.perpage = dict["perpage"] as! Int

@@ -19,17 +19,18 @@ class PhotosViewController: UIViewController {
         super.viewDidLoad()
         tableView.dataSource = dataProvider
         tableView.delegate = dataProvider
-        // Do any additional setup after loading the view.
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        api.loadPage(1) { (photo, error) in
+        
+        // load Photos
+        api.loadPage(1) { (photos, error) in
             if let photosDataProvider = self.dataProvider as? PhotosDataProvider {
-                photosDataProvider.photos = photo?.photo ?? [Photo]()
-                DispatchQueue.main.async {
-                    self.tableView.reloadData()
+                if let photos = photos?.photo {
+                    photosDataProvider.photos = photos
+                    DispatchQueue.main.async {
+                        self.tableView.reloadData()
+                    }
                 }
             }
+            
         }
     }
 

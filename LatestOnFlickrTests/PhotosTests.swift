@@ -19,7 +19,7 @@ class PhotosTests: XCTestCase {
         super.tearDown()
     }
     
-    func xtest_InitGivenAndJSONDictionary_ReturnsPhotosModel_ProperlySet() {
+    func test_InitGivenAndJSONDictionary_ReturnsPhotosModel_ProperlySet() {
         let data = returnsJsonPayload().data(using: .utf8)!
         
         let dict = try! JSONSerialization.jsonObject(with: data, options: []) as! [String: AnyObject]
@@ -31,6 +31,14 @@ class PhotosTests: XCTestCase {
         XCTAssertEqual(photos.perpage, 30)
         XCTAssertEqual(photos.photo.count, 1)
         
+    }
+    
+    func test_Init_Set_AllProperties() {
+        let photos = Photos(page: 1, perpage: 30, photo: [Photo]())
+        
+        XCTAssertEqual(photos.page, 1)
+        XCTAssertEqual(photos.perpage, 30)
+        XCTAssertTrue(photos.photo.isEmpty)
     }
     
 }

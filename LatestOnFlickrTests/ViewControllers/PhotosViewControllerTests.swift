@@ -22,7 +22,7 @@ class PhotosViewControllerTests: XCTestCase {
     }
     
     override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        sut = nil
         super.tearDown()
     }
     
@@ -38,38 +38,45 @@ class PhotosViewControllerTests: XCTestCase {
         XCTAssertTrue(sut.tableView.delegate is PhotosDataProvider)
     }
     
-    // 1
-    func test_ViewWillAppear_GotCalled() {
-        let api = MockAPI()
+    func test_LoadPage_ShouldBeCalledOnce_When_OnViewDidLoad() {
+        let api = MockAPIClient()
         sut.api = api
-        sut.beginAppearanceTransition(true, animated: true)
-        sut.endAppearanceTransition()
+        sut.viewDidLoad()
         
-        XCTAssertTrue(api.apiGotCalled)
+        XCTAssertEqual(api.apiGotCalledOnce, 1, "on viewDidLoad APIClient must be called once.")
     }
     
-//    // 2
-//    func test_ViewWillAppear_FillsDataProvider() {
-//        let api = MockAPI()
-//        sut.api = api
-//        sut.beginAppearanceTransition(true, animated: true)
-//        sut.endAppearanceTransition()
-//        
-//        XCTAssertTrue(api.apiGotCalled)
-//    }
-    
+    func test_LoadPage_When_PhotosNotEmpty_SetAdapter() {
+        
+        let photo = [
+            Photo(urlMedium: "", ownerName: "")
+        ]
+        
+        let api = MockAPIClient()
+        api.photo = Photos(page: 1, perpage: 30, photo: photo)
+        sut.api = api
+        sut.viewDidLoad()
+        
+        let dataProvider = (sut.dataProvider as! PhotosDataProvider)
+        XCTAssertEqual(dataProvider.photos.count, photo.count,
+                       "dataProvider must have the at least \(photo.count) photo(s)")
+    }
+
 }
 
 
 // 2
 extension PhotosViewControllerTests {
     
-    class MockAPI: APIClient {
+    class MockAPIClient: APIClient {
         
-        var apiGotCalled = false
+        var photo: Photos?
+        var apiGotCalledOnce = 0
         
         override func loadPage(_ pageNum: Int, completion: @escaping (Photos?, Error?) -> Void) {
-            apiGotCalled = true
+            apiGotCalledOnce += 1
+            completion(photo, nil)
         }
     }
+    
 }
